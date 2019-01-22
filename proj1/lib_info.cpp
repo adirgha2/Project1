@@ -1,7 +1,11 @@
 #include <iostream>
 #include "lib_info.h"
 #include <fstream>
+<<<<<<< HEAD
 #include <sstream>
+=======
+#include <algorithm>
+>>>>>>> 68db9f591d4b6be505438fd147646beeb67d1342
 
 using namespace std;
 
@@ -10,6 +14,7 @@ int main(int argc, char *argv[]){
 	
 	ifstream fin;
 	fin.open(argv[1]);
+<<<<<<< HEAD
 	string line, name, title,  artist, album, genre, track;
 	istringstream buffer;
 	int time;
@@ -23,5 +28,14 @@ int main(int argc, char *argv[]){
 	
 	}
 	cout <<"end";
+=======
+//	fin>>		
+
+string convertUnderscores(string line){
+	replace(line.begin(), line.end(), '_',' ');
+	return line;
+}
+
+>>>>>>> 68db9f591d4b6be505438fd147646beeb67d1342
 	return 0;
 }
