@@ -9,7 +9,7 @@ using namespace std;
 
 int timeToInt(string time);
 string convertUnderscores(string line);
-
+//void Song::newSong(string title, int track, int time);
 /* map<string, string> artistData;
  * map<string, string>::iterator it;
  * 
@@ -28,14 +28,13 @@ string convertUnderscores(string line);
  */
 
 int main(int argc, char *argv[]){
-	//Read in lines. Convert each time to an integer and test.
 
 	ifstream fin;
 	fin.open(argv[1]);
-	string line, name, title,  artist, album, genre, track;
+	string line, name, title,  artist, album, genre;
 	istringstream buffer;
 	string stringtime;
-	int time;
+	int time, track;
 
 	while (getline(fin, line)){
 		buffer.clear();
@@ -43,12 +42,14 @@ int main(int argc, char *argv[]){
 		buffer >> title >> stringtime >> artist >> album >> genre >> track;		
 		title = convertUnderscores(title);
 		time = timeToInt(stringtime);
-<<<<<<< HEAD
 	
-		Song *newsong = new Song;	
-=======
+	Song *newsong = new Song;
+	newsong->title = title;
+	newsong->track = track;
+	newsong->time = time;
+	
+	cout << newsong->title << " " << newsong->track<< " " << newsong->time << " " << endl;		
 
->>>>>>> 64112527153fdba0a791d46a47d1face9863756e
 	}
 	cout <<"end";
 
@@ -56,6 +57,12 @@ int main(int argc, char *argv[]){
 	return 0;
 }
 
+/*void Song::newSong(string title, int track, int time){
+	Song *newsong = new Song;
+	newsong->title = title;
+	newsong->track = track;
+	newsong->time = time;
+}*/
 int timeToInt(string time){
 	int hour, min;
 	char discard;
