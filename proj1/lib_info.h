@@ -4,12 +4,10 @@ using namespace std;
 
 struct Song { 
 public:
-    string title;
+	string title;
     int time;
     int track;
 	void printSong();
-
-
 
 };
 

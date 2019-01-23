@@ -19,14 +19,15 @@ int main(int argc, char *argv[]){
 	istringstream buffer;
 	string stringtime;
 	int time;
+
 	while (getline(fin, line)){
 		buffer.clear();
 		buffer.str(line);
 		buffer >> title >> stringtime >> artist >> album >> genre >> track;		
 		title = convertUnderscores(title);
-		cout << title << endl;
 		time = timeToInt(stringtime);
-		
+	
+		Song *newsong = new Song;	
 	}
 	cout <<"end";
 
@@ -48,4 +49,5 @@ string convertUnderscores(string line){
 	replace(line.begin(), line.end(), '_',' ');
 	return line;
 }
+
 
