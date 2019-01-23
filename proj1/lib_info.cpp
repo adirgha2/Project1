@@ -9,6 +9,7 @@ using namespace std;
 
 int timeToInt(string time);
 string convertUnderscores(string line);
+<<<<<<< HEAD
 //void Song::newSong(string title, int track, int time);
 /* map<string, string> artistData;
  * map<string, string>::iterator it;
@@ -26,6 +27,16 @@ string convertUnderscores(string line);
  *
  *
  */
+=======
+/*printSong(string title, int track, int time){
+	cout << title << " " <<
+
+
+
+	}
+	*/
+
+>>>>>>> c4aa6f8f6388f37d87a6f38c660a90eb08c14a78
 
 int main(int argc, char *argv[]){
 
@@ -42,6 +53,7 @@ int main(int argc, char *argv[]){
 		buffer >> title >> stringtime >> artist >> album >> genre >> track;		
 		title = convertUnderscores(title);
 		time = timeToInt(stringtime);
+<<<<<<< HEAD
 	
 	Song *newsong = new Song;
 	newsong->title = title;
@@ -50,6 +62,22 @@ int main(int argc, char *argv[]){
 	
 	cout << newsong->title << " " << newsong->track<< " " << newsong->time << " " << endl;		
 
+=======
+
+		Song *newsong = new Song;	
+ 
+  map<string, string> artistData;
+  map<string, string>::iterator it;
+  
+ 	it = artistData.find(artist);
+ 	if (it != artistData.end()){
+ 		cout << "Old Artist: " << it->first << endl;
+ 		}else{
+ 			Artist *newArtist = new Artist;
+ 			artistData.insert(make_pair(artist, album));
+ 			cout << "New Artist: " << it->first << endl;
+ 			}
+>>>>>>> c4aa6f8f6388f37d87a6f38c660a90eb08c14a78
 	}
 	cout <<"end";
 
