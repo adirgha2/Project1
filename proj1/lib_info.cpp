@@ -9,7 +9,6 @@ using namespace std;
 
 int timeToInt(string time);
 string convertUnderscores(string line);
-<<<<<<< HEAD
 //void Song::newSong(string title, int track, int time);
 /* map<string, string> artistData;
  * map<string, string>::iterator it;
@@ -27,7 +26,6 @@ string convertUnderscores(string line);
  *
  *
  */
-=======
 /*printSong(string title, int track, int time){
 	cout << title << " " <<
 
@@ -35,8 +33,6 @@ string convertUnderscores(string line);
 
 	}
 	*/
-
->>>>>>> c4aa6f8f6388f37d87a6f38c660a90eb08c14a78
 
 int main(int argc, char *argv[]){
 
@@ -50,47 +46,38 @@ int main(int argc, char *argv[]){
 	while (getline(fin, line)){
 		buffer.clear();
 		buffer.str(line);
-		buffer >> title >> stringtime >> artist >> album >> genre >> track;		
+		buffer >> title >> stringtime >> name >> album >> genre >> track;		
 		title = convertUnderscores(title);
 		time = timeToInt(stringtime);
-<<<<<<< HEAD
-	
+		name = convertUnderscores(name);	
 	Song *newsong = new Song;
 	newsong->title = title;
 	newsong->track = track;
 	newsong->time = time;
 	
-	cout << newsong->title << " " << newsong->track<< " " << newsong->time << " " << endl;		
+//	cout << newsong->title << " " << newsong->track<< " " << newsong->time << " " << endl;		
 
-=======
 
-		Song *newsong = new Song;	
- 
-  map<string, string> artistData;
-  map<string, string>::iterator it;
+ map<string, Song *> artistData;
+  map<string, Song *>::iterator it;
   
- 	it = artistData.find(artist);
+ 	it = artistData.find(name);
  	if (it != artistData.end()){
- 		cout << "Old Artist: " << it->first << endl;
- 		}else{
- 			Artist *newArtist = new Artist;
- 			artistData.insert(make_pair(artist, album));
- 			cout << "New Artist: " << it->first << endl;
- 			}
->>>>>>> c4aa6f8f6388f37d87a6f38c660a90eb08c14a78
+			cout << "Old Artist: "<< it->first << endl;
+ 		} else {
+		Artist *newArtist = new Artist;
+		newArtist->name = name;
+		newArtist->time = time;
+		artistData.insert(make_pair(name, newsong));
+		cout << "New artist: " << newArtist->name << endl;
 	}
+}
 	cout <<"end";
-
 
 	return 0;
 }
 
-/*void Song::newSong(string title, int track, int time){
-	Song *newsong = new Song;
-	newsong->title = title;
-	newsong->track = track;
-	newsong->time = time;
-}*/
+
 int timeToInt(string time){
 	int hour, min;
 	char discard;
