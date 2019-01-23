@@ -43,10 +43,11 @@ int main(int argc, char *argv[]){
  	it = artistData.find(artist);
  	if (it != artistData.end()){
  		cout << "Old Artist: " << it->first << endl;
- 		}else{
+ 		}
+	else{
  			Artist *newArtist = new Artist;
  			artistData.insert(make_pair(artist, album));
- 			cout << "New Artist: " << it->first << endl;
+ 			cout << "New Artist: " << it->second << endl;
  			}
 	}
 	cout <<"end";
