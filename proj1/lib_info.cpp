@@ -63,6 +63,7 @@ int main(int argc, char *argv[]){
   
  	it = artistData.find(name);
  	if (it != artistData.end()){
+<<<<<<< HEAD
 			cout << "Old Artist: "<< it->first << endl;
  		} else {
 		Artist *newArtist = new Artist;
@@ -70,6 +71,16 @@ int main(int argc, char *argv[]){
 		newArtist->time = time;
 		artistData.insert(make_pair(name, newsong));
 		cout << "New artist: " << newArtist->name << endl;
+=======
+ 		cout << "Old Artist: " << it->first << endl;
+ 		}
+	else{
+ 			Artist *newArtist = new Artist;
+ 			artistData.insert(make_pair(artist, album));
+ 			cout << "New Artist: " << it->second << endl;
+ 			}
+>>>>>>> c4aa6f8f6388f37d87a6f38c660a90eb08c14a78
+>>>>>>> 054c910314779f81343ad309aad41a773d08d5be
 	}
 }
 	cout <<"end";
