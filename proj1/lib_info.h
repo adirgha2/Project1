@@ -3,11 +3,14 @@
 using namespace std;
 
 struct Song { 
+public:
     string title;
     int time;
     int track;
-		void printSong();
-		string convertUnderscores(string line);
+	void printSong();
+
+
+
 };
 
 struct Album {
@@ -26,3 +29,4 @@ struct Artist {
     int time;
     int nsongs;
 };
+
