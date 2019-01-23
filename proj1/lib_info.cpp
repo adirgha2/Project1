@@ -4,35 +4,13 @@
 #include <sstream>
 #include <algorithm>
 #include <map>
+#include <string>
 
 using namespace std;
 
 int timeToInt(string time);
 string convertUnderscores(string line);
-//void Song::newSong(string title, int track, int time);
-/* map<string, string> artistData;
- * map<string, string>::iterator it;
- * 
- * while(cin >> title){
- *	it = artistData.find(artist);
- *	if (it != artistData.end()){
- *		cout << "Old Artist: " << it->first << endl;"
- *		}else{
- *			Artist newArtist = new Artist;
- *			artistData.insert(make_pair(artist, album));
- *			cout << "New Artist: " << it->first << endl;
- *			}
- *	}
- *
- *
- */
-/*printSong(string title, int track, int time){
-	cout << title << " " <<
-
-
-
-	}
-	*/
+string IntToTime(int time);
 
 int main(int argc, char *argv[]){
 
@@ -42,6 +20,12 @@ int main(int argc, char *argv[]){
 	istringstream buffer;
 	string stringtime;
 	int time, track;
+	map<string, Artist *> artistData;
+	map<string, Artist *>::iterator it;
+	map<string, Album *> albums;
+	map<string, Album *>::iterator ait;
+	map<int, Song *> songs;
+	map<int, Song *>::iterator sit;
 
 	while (getline(fin, line)){
 		buffer.clear();
@@ -50,41 +34,53 @@ int main(int argc, char *argv[]){
 		title = convertUnderscores(title);
 		time = timeToInt(stringtime);
 		name = convertUnderscores(name);	
-	Song *newsong = new Song;
-	newsong->title = title;
-	newsong->track = track;
-	newsong->time = time;
-	
-//	cout << newsong->title << " " << newsong->track<< " " << newsong->time << " " << endl;		
 
+		Song *newsong = new Song;
+		newsong->title = title;
+		newsong->track = track;
+		newsong->time = time;
 
- map<string, Song *> artistData;
-  map<string, Song *>::iterator it;
-  
- 	it = artistData.find(name);
- 	if (it != artistData.end()){
-<<<<<<< HEAD
-			cout << "Old Artist: "<< it->first << endl;
- 		} else {
 		Artist *newArtist = new Artist;
 		newArtist->name = name;
 		newArtist->time = time;
-		artistData.insert(make_pair(name, newsong));
-		cout << "New artist: " << newArtist->name << endl;
-=======
- 		cout << "Old Artist: " << it->first << endl;
- 		}
-	else{
- 			Artist *newArtist = new Artist;
- 			artistData.insert(make_pair(artist, album));
- 			cout << "New Artist: " << it->second << endl;
- 			}
->>>>>>> c4aa6f8f6388f37d87a6f38c660a90eb08c14a78
->>>>>>> 054c910314779f81343ad309aad41a773d08d5be
-	}
-}
-	cout <<"end";
 
+		it = artistData.find(name);
+		if (it  == artistData.end()){
+			artistData[name] = newArtist;
+//			artistData.insert(make_pair(name, newArtist));
+		//	cout << "New artist: " << name<< endl;
+
+		} else {
+		//	cout << "Old Artist: "<< name << endl;
+		}
+
+		Album *newalbum = new Album;
+		newalbum->name = album;
+		newalbum->time = 0;
+
+		ait = albums.find(album);
+		if (ait == albums.end()) {
+			albums[album] = newalbum;
+		//albums.insert(make_pair(album, newalbum));
+			//cout << "newalbum: "<< album << endl;
+		}else{
+			//cout << "oldalbum: " << album << endl;
+		}
+	
+	sit = songs.find(track);
+	if (sit == songs.end()) {
+		songs[newsong->track] = newsong;
+	}
+	}
+	
+
+	for (it = artistData.begin(); it != artistData.end(); it++){
+		for (ait = albums.begin(); ait != albums.begin(); ait++) {
+			cout<< it->second->name <<endl;
+			cout << ait->second->name  << endl;
+		}
+	}
+	cout << "end";
 	return 0;
 }
 
@@ -105,3 +101,9 @@ string convertUnderscores(string line){
 }
 
 
+string IntToTime(int time) {
+	int hour = time / 60;
+	int min = time % 60;	
+	string stringtime = to_string(hour) + ":" + to_string(min);
+	return stringtime;
+}
