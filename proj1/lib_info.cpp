@@ -9,6 +9,25 @@ using namespace std;
 
 int timeToInt(string time);
 string convertUnderscores(string line);
+<<<<<<< HEAD
+//void Song::newSong(string title, int track, int time);
+/* map<string, string> artistData;
+ * map<string, string>::iterator it;
+ * 
+ * while(cin >> title){
+ *	it = artistData.find(artist);
+ *	if (it != artistData.end()){
+ *		cout << "Old Artist: " << it->first << endl;"
+ *		}else{
+ *			Artist newArtist = new Artist;
+ *			artistData.insert(make_pair(artist, album));
+ *			cout << "New Artist: " << it->first << endl;
+ *			}
+ *	}
+ *
+ *
+ */
+=======
 /*printSong(string title, int track, int time){
 	cout << title << " " <<
 
@@ -17,16 +36,16 @@ string convertUnderscores(string line);
 	}
 	*/
 
+>>>>>>> c4aa6f8f6388f37d87a6f38c660a90eb08c14a78
 
 int main(int argc, char *argv[]){
-	//Read in lines. Convert each time to an integer and test.
 
 	ifstream fin;
 	fin.open(argv[1]);
-	string line, name, title,  artist, album, genre, track;
+	string line, name, title,  artist, album, genre;
 	istringstream buffer;
 	string stringtime;
-	int time;
+	int time, track;
 
 	while (getline(fin, line)){
 		buffer.clear();
@@ -34,6 +53,16 @@ int main(int argc, char *argv[]){
 		buffer >> title >> stringtime >> artist >> album >> genre >> track;		
 		title = convertUnderscores(title);
 		time = timeToInt(stringtime);
+<<<<<<< HEAD
+	
+	Song *newsong = new Song;
+	newsong->title = title;
+	newsong->track = track;
+	newsong->time = time;
+	
+	cout << newsong->title << " " << newsong->track<< " " << newsong->time << " " << endl;		
+
+=======
 
 		Song *newsong = new Song;	
  
@@ -49,6 +78,7 @@ int main(int argc, char *argv[]){
  			artistData.insert(make_pair(artist, album));
  			cout << "New Artist: " << it->second << endl;
  			}
+>>>>>>> c4aa6f8f6388f37d87a6f38c660a90eb08c14a78
 	}
 	cout <<"end";
 
@@ -56,6 +86,12 @@ int main(int argc, char *argv[]){
 	return 0;
 }
 
+/*void Song::newSong(string title, int track, int time){
+	Song *newsong = new Song;
+	newsong->title = title;
+	newsong->track = track;
+	newsong->time = time;
+}*/
 int timeToInt(string time){
 	int hour, min;
 	char discard;

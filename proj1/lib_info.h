@@ -8,7 +8,7 @@ public:
     int time;
     int track;
 	void printSong();
-
+//	void newSong(string &title, int &track, int &time);
 };
 
 struct Album {
