@@ -10,7 +10,11 @@ using namespace std;
 int timeToInt(string time);
 string convertUnderscores(string line);
 
-/* map<string, string> artistData;
+/* Step 3 and Step 4
+ * this can go in createArtist and checkArtist function// int main
+ * copied into step 4 but for album
+ *
+ * map<string, string> artistData;
  * map<string, string>::iterator it;
  * 
  * while(cin >> title){
@@ -18,7 +22,7 @@ string convertUnderscores(string line);
  *	if (it != artistData.end()){
  *		cout << "Old Artist: " << it->first << endl;"
  *		}else{
- *			Artist newArtist = new Artist;
+ *			Artist *newArtist = new Artist;
  *			artistData.insert(make_pair(artist, album));
  *			cout << "New Artist: " << it->first << endl;
  *			}
