@@ -3,28 +3,25 @@
 using namespace std;
 
 struct Song { 
-public:
-	string title;
-    int time;
-    int track;
-	void printSong();
-//	void newSong(string &title, int &track, int &time);
+	public:
+		string title;
+		int time;
+		int track;
 };
 
 struct Album {
-    map <int, Song > songs;
-    string name;
-    int time;
-		void printSong();
+	public:
+		map <int, Song *> songs;
+		string name;
+		int time;
+		int nsongs;
 };
 
 struct Artist {
-    map <string, Album > albums;
-    void printArtist();
-		string checkArtist(); //checks to see if Artist is in map
-		string createArtist(); //creates an artist if nonexistent
+	public:
+		map <string, Album *> albums;
 		string name;
-    int time;
-    int nsongs;
+		int time;
+		int nsongs;
 };
 
